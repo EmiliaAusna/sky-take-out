@@ -5,6 +5,7 @@ import com.sky.annotation.AutoFill;
 import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
 import com.sky.enumeration.OperationType;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -50,4 +51,5 @@ public interface EmployeeMapper {
      */
     @Select("SELECT * from employee where id = #{id}")
     Employee getById(Long id);
+
 }
