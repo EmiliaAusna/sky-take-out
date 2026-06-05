@@ -1,4 +1,7 @@
 sky:
+  wechat:
+    appid: wx3491f47033ba8c1e
+    secret: 7d5c07de49f9ad0fffae3ac5ce7a5396
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     host: localhost
@@ -11,7 +14,6 @@ sky:
     access-key-id: LTAI5t757vUtJpVsRUV5asuX
     access-key-secret: TZt6jR20T8DOIBB2nruvrQm56tVJFS
     bucket-name: sky-take-out-zjh084
-  sky:
   redis:
     host: localhost
     port: 6379

@@ -28,6 +28,11 @@ public class ShopController {
     @ApiOperation("获取店铺的营业状态")
     public Result<Integer> getStatus(){
         Integer status = (Integer) redisTemplate.opsForValue().get(KEY);
+        // 兜底逻辑：Redis无key则默认营业，同时写入Redis
+        if(status == null){
+            status = 1;
+            redisTemplate.opsForValue().set(KEY, status);
+        }
         log.info("获取到店铺的营业状态为：{}",status == 1 ? "营业中" : "打烊中");
         return Result.success(status);
     }
