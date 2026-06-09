@@ -178,4 +178,20 @@ public class DishServiceImpl implements DishService {
 
         return dishVOList;
     }
+
+    /**
+     * 菜品起售/停售
+     * @param status 1=起售 0=停售
+     * @param id 菜品id
+     */
+    public void startOrStop(Integer status,Long id){
+        // 构建要更新的菜品对象（只需要更新 status 和 id）
+        Dish dish = Dish.builder()
+                .id(id)
+                .status(status)
+                .build();
+
+        // 执行更新
+        dishMapper.update(dish);
+    }
 }
