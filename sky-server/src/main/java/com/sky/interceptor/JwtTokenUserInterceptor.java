@@ -1,5 +1,6 @@
 package com.sky.interceptor;
 
+import com.sky.annotation.IgnoreToken;
 import com.sky.constant.JwtClaimsConstant;
 import com.sky.context.BaseContext;
 import com.sky.properties.JwtProperties;
@@ -40,6 +41,12 @@ public class JwtTokenUserInterceptor implements HandlerInterceptor {
             return true;
         }
 
+        HandlerMethod handlerMethod = (HandlerMethod) handler;
+        // 新增：判断当前方法是否标注 @IgnoreToken，有注解直接跳过token校验放行
+        IgnoreToken ignoreToken = handlerMethod.getMethod().getAnnotation(IgnoreToken.class);
+        if (ignoreToken != null) {
+            return true;
+        }
         //1、从请求头中获取令牌
         String token = request.getHeader(jwtProperties.getUserTokenName());
 

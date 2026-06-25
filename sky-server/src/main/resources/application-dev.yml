@@ -1,4 +1,12 @@
 sky:
+  # 模拟支付配置，替代微信支付
+  mockpay:
+    # 项目本地地址，回调要用
+    server-url: http://localhost:8080
+    # 支付回调接口地址（后端接收支付结果）
+    notify-path: /pay/mock/notify
+    # 模拟支付页面访问路径
+    pay-page-path: /pay/mock/page
   wechat:
     appid: wx3491f47033ba8c1e
     secret: 7d5c07de49f9ad0fffae3ac5ce7a5396

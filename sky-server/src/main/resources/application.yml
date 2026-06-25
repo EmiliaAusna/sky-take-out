@@ -14,7 +14,7 @@ spring:
   datasource:
     druid:
       driver-class-name: ${sky.datasource.driver-class-name}
-      url: jdbc:mysql://${sky.datasource.host}:${sky.datasource.port}/${sky.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      url: jdbc:mysql://${sky.datasource.host}:${sky.datasource.port}/${sky.datasource.database}?rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: ${sky.datasource.username}
       password: ${sky.datasource.password}
 
@@ -25,6 +25,9 @@ mybatis:
   configuration:
     #开启驼峰命名
     map-underscore-to-camel-case: true
+    #允许一次执行多条SQL语句
+    multiple-result-sets-enabled: true
+
 
 logging:
   level:
@@ -35,6 +38,10 @@ logging:
         controller: info
 
 sky:
+  shop:
+    address: 双流区锦华路四段与锦华路四段一街交叉口东120米
+  baidu:
+    ak: i5dS9mru4R7sVyYGUYjcv8GLLv83rvyV
   wechat:
     appid: ${sky.wechat.appid}
     secret: ${sky.wechat.secret}
