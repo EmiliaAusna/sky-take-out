@@ -9,7 +9,6 @@ import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import sun.util.resources.cldr.mg.LocaleNames_mg;
 
 import java.util.List;
 import java.util.Map;

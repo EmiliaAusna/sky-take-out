@@ -3,7 +3,7 @@ package com.sky.controller.admin;
 
 import com.sky.constant.MessageConstant;
 import com.sky.result.Result;
-import com.sky.utils.AliOssUtil;
+import com.sky.utils.MinioUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ import java.util.UUID;
 @Slf4j
 public class CommonController {
     @Autowired
-    private AliOssUtil aliOssUtil;
+    private MinioUtil minioUtil;
 
     /**
      * 文件上传
@@ -45,7 +45,7 @@ public class CommonController {
             //构造新文件名称
             String objectName = UUID.randomUUID().toString() + extension;
             //文件的请求路径
-            String filePath = aliOssUtil.upload(file.getBytes(),objectName);
+            String filePath = minioUtil.upload(file.getBytes(),objectName);
             return Result.success(filePath);
         } catch (IOException e) {
             log.info("文件上传失败：{}",e);

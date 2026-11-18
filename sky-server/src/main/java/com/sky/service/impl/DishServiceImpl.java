@@ -134,12 +134,12 @@ public class DishServiceImpl implements DishService {
         dishFlavorMapper.deleteByDishId(dishDTO.getId());
         //重新插入口味数据
         List<DishFlavor> flavors = dishDTO.getFlavors();
-        //給每个口味绑定菜品id
+        //給每个口味绑定菜品id，非空才批量插入
         if(flavors!=null && flavors.size()>0){
             flavors.forEach(dishFlavor -> {dishFlavor.setDishId(dishDTO.getId());});
+            //向口味表插入n条数据
+            dishFlavorMapper.insertBatch(flavors);
         }
-        //向口味表插入n条数据
-        dishFlavorMapper.insertBatch(flavors);
     }
 
     /**

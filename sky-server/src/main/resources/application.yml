@@ -45,11 +45,11 @@ sky:
   wechat:
     appid: ${sky.wechat.appid}
     secret: ${sky.wechat.secret}
-  alioss:
-    endpoint: ${sky.alioss.endpoint}
-    access-key-id: ${sky.alioss.access-key-id}
-    access-key-secret: ${sky.alioss.access-key-secret}
-    bucket-name: ${sky.alioss.bucket-name}
+  minio:
+    endpoint: ${sky.minio.endpoint}
+    access-key: ${sky.minio.access-key}
+    secret-key: ${sky.minio.secret-key}
+    bucket-name: ${sky.minio.bucket-name}
   jwt:
     # 设置jwt签名加密时使用的秘钥
     admin-secret-key: itcast
